@@ -770,6 +770,200 @@
   width: 182px;
 }
 
+    .ops-system {
+      padding-top: 92px;
+      padding-bottom: 108px;
+    }
+
+    .ops-flow {
+      margin-top: 30px;
+      display: grid;
+      gap: 24px;
+    }
+
+    .ops-strip-wrap {
+      position: relative;
+      overflow-x: auto;
+      padding: 6px 2px 8px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+
+    .ops-strip {
+      position: relative;
+      min-width: 980px;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .ops-node {
+      position: relative;
+      z-index: 2;
+      border: 1px solid rgba(32,37,52,0.10);
+      border-radius: 18px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.70);
+      box-shadow: 0 10px 24px rgba(32,37,52,0.05);
+      color: rgba(32,37,52,0.74);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      transition: transform 0.32s ease, background 0.32s ease, color 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease;
+      opacity: 0;
+      transform: translateY(14px);
+    }
+
+    .ops-panel.active .ops-node {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .ops-panel.active .ops-node:nth-of-type(1) { transition-delay: 0.05s; }
+    .ops-panel.active .ops-node:nth-of-type(2) { transition-delay: 0.11s; }
+    .ops-panel.active .ops-node:nth-of-type(3) { transition-delay: 0.18s; }
+    .ops-panel.active .ops-node:nth-of-type(4) { transition-delay: 0.26s; }
+    .ops-panel.active .ops-node:nth-of-type(5) { transition-delay: 0.34s; }
+
+    .ops-node:hover {
+      background: rgba(255,255,255,0.80);
+      border-color: rgba(130,149,181,0.24);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .ops-node.is-active {
+      background:
+        radial-gradient(circle at 14% 0%, rgba(130,149,181,0.16), transparent 55%),
+        rgba(255,255,255,0.94);
+      border-color: rgba(130,149,181,0.32);
+      color: var(--text);
+      box-shadow: 0 16px 30px rgba(115,137,170,0.14);
+    }
+
+    .ops-node.is-preview:not(.is-active) {
+      border-color: rgba(130,149,181,0.20);
+      background: rgba(255,255,255,0.78);
+      color: rgba(32,37,52,0.85);
+    }
+
+    .ops-link {
+      position: absolute;
+      top: 50%;
+      height: 1px;
+      transform: translateY(-50%);
+      background: linear-gradient(90deg, rgba(32,37,52,0.08), rgba(32,37,52,0.14), rgba(32,37,52,0.08));
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.7s ease;
+    }
+
+    .ops-panel.active .ops-link {
+      opacity: 1;
+    }
+
+    .ops-link.link-1 { left: calc(20% - 8px); width: 18px; transition-delay: 0.15s; }
+    .ops-link.link-2 { left: calc(40% - 8px); width: 18px; transition-delay: 0.21s; }
+    .ops-link.link-3 { left: calc(60% - 8px); width: 18px; transition-delay: 0.27s; }
+    .ops-link.link-4 { left: calc(80% - 8px); width: 18px; transition-delay: 0.33s; }
+
+    .ops-detail {
+      border-radius: 24px;
+      border: 1px solid rgba(32,37,52,0.10);
+      background:
+        radial-gradient(circle at 85% 0%, rgba(130,149,181,0.11), transparent 36%),
+        linear-gradient(180deg, rgba(255,255,255,0.90), rgba(255,255,255,0.78));
+      box-shadow: 0 20px 48px rgba(32,37,52,0.08);
+      padding: clamp(24px, 4vw, 40px);
+      min-height: 350px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ops-detail-content {
+      max-width: 760px;
+      transition: opacity 0.28s ease, transform 0.28s ease;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .ops-detail-content.is-changing {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    .ops-step-label {
+      display: inline-flex;
+      font-size: 0.79rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .ops-subheadline {
+      font-size: clamp(1.42rem, 3vw, 2rem);
+      line-height: 1.28;
+      letter-spacing: -0.025em;
+      margin: 0 0 12px;
+    }
+
+    .ops-body {
+      margin: 0;
+      color: rgba(32,37,52,0.86);
+      line-height: 1.74;
+      max-width: 67ch;
+    }
+
+    .ops-actions {
+      margin-top: 20px;
+      border-radius: 16px;
+      padding: 16px 18px 16px 20px;
+      border: 1px solid rgba(32,37,52,0.09);
+      background: rgba(248,246,241,0.68);
+    }
+
+    .ops-actions-title {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 650;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .ops-actions ul {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+      color: rgba(32,37,52,0.86);
+      line-height: 1.6;
+    }
+
+    .ops-why {
+      margin-top: 16px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .ops-why strong {
+      color: var(--text);
+      font-weight: 640;
+      margin-right: 6px;
+    }
+
+    .ops-closing {
+      margin-top: 10px;
+      color: rgba(32,37,52,0.84);
+      line-height: 1.75;
+      font-size: 1rem;
+      max-width: 84ch;
+    }
+
     @media (max-width: 980px) {
   .section-head,
   .story-grid,
@@ -837,6 +1031,20 @@
 
   .ring-center {
     max-width: 150px;
+  }
+
+  .ops-strip {
+    min-width: 760px;
+    gap: 14px;
+  }
+
+  .ops-node {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+
+  .ops-detail {
+    min-height: 390px;
   }
 }
 
@@ -1175,12 +1383,122 @@
     </div>
   </div>
 </section>
+
+    <section id="strategy" class="ops-system">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>How the business should operate</h2>
+          <div class="section-copy">
+            This is how early customer behavior should be translated into targeted promotions, retention timing, and long-term value.
+          </div>
+        </div>
+
+        <div class="ops-flow ops-panel reveal">
+          <div class="ops-strip-wrap">
+            <div class="ops-strip" role="tablist" aria-label="Operating system steps">
+              <div class="ops-link link-1" aria-hidden="true"></div>
+              <div class="ops-link link-2" aria-hidden="true"></div>
+              <div class="ops-link link-3" aria-hidden="true"></div>
+              <div class="ops-link link-4" aria-hidden="true"></div>
+              <button class="ops-node is-active" role="tab" aria-selected="true" data-step-index="0">New customer</button>
+              <button class="ops-node" role="tab" aria-selected="false" data-step-index="1">Behavior signals</button>
+              <button class="ops-node" role="tab" aria-selected="false" data-step-index="2">Classification</button>
+              <button class="ops-node" role="tab" aria-selected="false" data-step-index="3">Incentive strategy</button>
+              <button class="ops-node" role="tab" aria-selected="false" data-step-index="4">Retention loop</button>
+            </div>
+          </div>
+
+          <div class="ops-detail">
+            <div class="ops-detail-content" id="ops-detail-content" aria-live="polite">
+              <div class="ops-step-label" id="ops-step-label">Step 1</div>
+              <h3 class="ops-subheadline" id="ops-subheadline">Every customer begins with a first purchase.</h3>
+              <p class="ops-body" id="ops-body">At the point of entry, the business has very little information about long-term value. A first purchase alone does not justify strong retention spend.</p>
+              <div class="ops-actions">
+                <span class="ops-actions-title">What the business does</span>
+                <ul id="ops-actions-list">
+                  <li>record the first order</li>
+                  <li>begin tracking early behavior immediately</li>
+                  <li>avoid giving away large discounts before any signal of repeat value appears</li>
+                </ul>
+              </div>
+              <div class="ops-why" id="ops-why"><strong>Why this matters:</strong><span>Not every customer is equally likely to become valuable.</span></div>
+            </div>
+          </div>
+
+          <p class="ops-closing">
+            Growth in this business comes from identifying the customers who show early value signals, moving them into repeat behavior, and reducing support only after loyalty has become stable.
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script>
     const revealEls = document.querySelectorAll('.reveal');
     const animatedBarGroups = document.querySelectorAll('[data-bars]');
     const panels = document.querySelectorAll('.panel');
+    const opsNodes = document.querySelectorAll('.ops-node');
+    const opsDetail = document.getElementById('ops-detail-content');
+
+    const opsSteps = [
+      {
+        step: 'Step 1',
+        subheadline: 'Every customer begins with a first purchase.',
+        body: 'At the point of entry, the business has very little information about long-term value. A first purchase alone does not justify strong retention spend.',
+        actions: [
+          'record the first order',
+          'begin tracking early behavior immediately',
+          'avoid giving away large discounts before any signal of repeat value appears'
+        ],
+        why: 'Not every customer is equally likely to become valuable.'
+      },
+      {
+        step: 'Step 2',
+        subheadline: 'Early behavior reveals whether a customer is worth additional investment.',
+        body: 'The most useful early signals are not total spend alone. The business should track how quickly a customer returns, how large their baskets are, and how broadly they engage with the catalog.',
+        actions: [
+          'track order frequency',
+          'track basket size',
+          'track product breadth / assortment engagement'
+        ],
+        why: 'These behaviors are stronger indicators of long-term value than a single high-spend transaction.'
+      },
+      {
+        step: 'Step 3',
+        subheadline: 'Customers should be split into high-potential and low-potential paths.',
+        body: 'Once early signals begin to appear, the business should classify customers based on their likelihood of becoming repeat, high-value buyers.',
+        actions: [
+          'classify customers showing repeat behavior, larger baskets, and broader engagement as high-potential',
+          'classify one-time or narrow, low-engagement buyers as low-potential',
+          'use this classification to decide how much promotional effort is justified'
+        ],
+        why: 'The business should not spend the same amount trying to retain every customer.'
+      },
+      {
+        step: 'Step 4',
+        subheadline: 'Promotions should be targeted, delayed to the next order, and time-sensitive.',
+        body: 'For high-potential customers, promotions should be used to drive the next purchase, not reduce margin on the current one. The strongest incentives should appear early and expire quickly enough to create urgency.',
+        actions: [
+          'issue promotions for the next purchase, not the current one',
+          'keep those offers time-sensitive',
+          'use stronger offers in the first few purchases',
+          'avoid heavy discounting for low-potential customers'
+        ],
+        why: 'The goal is to create repeat behavior, not just subsidize isolated transactions.'
+      },
+      {
+        step: 'Step 5',
+        subheadline: 'Retention should reinforce behavior early, then taper as loyalty stabilizes.',
+        body: 'Once a customer begins repeating, the business should maintain engagement through follow-up emails, point systems, or targeted promotions. Reward intensity should diminish over time because stable customers need less inducement to stay active.',
+        actions: [
+          'reinforce repeat behavior with email or promotional follow-up',
+          'use a points system or structured reward loop',
+          'make rewards easier to earn early',
+          'taper rewards as customers become more established'
+        ],
+        why: 'The business should invest most heavily when behavior is still fragile, not after loyalty is already formed.'
+      }
+    ];
 
     function setBars(group, expanded) {
       const fills = group.querySelectorAll('.bar-fill, .compare-fill');
@@ -1215,6 +1533,52 @@
     }, { threshold: 0.35 });
 
     panels.forEach(panel => panelObserver.observe(panel));
+
+    function renderOpsStep(index) {
+      if (!opsDetail) return;
+      const stepData = opsSteps[index];
+      if (!stepData) return;
+
+      const stepLabel = document.getElementById('ops-step-label');
+      const subheadline = document.getElementById('ops-subheadline');
+      const body = document.getElementById('ops-body');
+      const actionsList = document.getElementById('ops-actions-list');
+      const why = document.getElementById('ops-why');
+
+      opsDetail.classList.add('is-changing');
+      setTimeout(() => {
+        stepLabel.textContent = stepData.step;
+        subheadline.textContent = stepData.subheadline;
+        body.textContent = stepData.body;
+        actionsList.innerHTML = stepData.actions.map(item => `<li>${item}</li>`).join('');
+        why.innerHTML = `<strong>Why this matters:</strong><span>${stepData.why}</span>`;
+        opsDetail.classList.remove('is-changing');
+      }, 170);
+    }
+
+    function setOpsActive(index) {
+      opsNodes.forEach((node, nodeIndex) => {
+        const isActive = nodeIndex === index;
+        node.classList.toggle('is-active', isActive);
+        node.classList.remove('is-preview');
+        node.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      renderOpsStep(index);
+    }
+
+    opsNodes.forEach((node, index) => {
+      node.addEventListener('click', () => setOpsActive(index));
+      node.addEventListener('mouseenter', () => {
+        if (!node.classList.contains('is-active')) node.classList.add('is-preview');
+      });
+      node.addEventListener('mouseleave', () => node.classList.remove('is-preview'));
+      node.addEventListener('focus', () => {
+        if (!node.classList.contains('is-active')) node.classList.add('is-preview');
+      });
+      node.addEventListener('blur', () => node.classList.remove('is-preview'));
+    });
+
+    setOpsActive(0);
   </script>
 </body>
 </html>
