@@ -138,14 +138,12 @@
     }
 
     .timing-area-reveal {
-      transform-box: fill-box;
-      transform-origin: left center;
-      transform: scaleX(0);
-      transition: transform 1.28s cubic-bezier(.22,.78,.2,1) 0.28s;
+      opacity: 0;
+      transition: opacity 1.45s ease 0.42s;
     }
 
     .timing-panel.active .timing-area-reveal {
-      transform: scaleX(1);
+      opacity: 1;
     }
 
     .timing-curve {
@@ -2342,8 +2340,6 @@
               <p class="ops-why"><strong>Why this matters:</strong> Not every customer is equally likely to become valuable.</p>
             </div>
           </div>
-
-          <p class="ops-close">Growth in this business comes from identifying the customers who show early value signals, moving them into repeat behavior, and reducing support only after loyalty has become stable.</p>
         </div>
       </div>
     </section>
